@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="es" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Tienda</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Angular -->
+    <script src="js/vendor/angular.min.js"></script>
+    <script src="js/vendor/ui-router.min.js"></script>
+    <script src="js/vendor/angular-resource.min.js"></script>
+
+    <!-- Script Angular  -->
+    <script src="app/app.js"></script>
+    <script src="app/controllers/categoriaController.js"></script>
+    <script src="app/controllers/subCategoriaController.js"></script>
+    <script src="app/filters/oracion.js"></script>
+</head>
+<body>
+<!-- Header -->
+<header class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="http://www.w3.org/html/logo/downloads/HTML5_Logo_256.png" width="150px" />
+            </div>
+            <div class="col-md-8">
+                <h1>Bienvenido</h1>
+                <p>Distribución y venta de productos informaticos </p>
+                <div class="header-social">
+                    <a href="">
+                        <i class="fa fa-facebook-official"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-twitter-square"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-google-plus-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- MegaMenu -->
+<nav class="container">
+    <div class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a ui-sref="home" class="navbar-brand">Mi marca</a>
+        </div>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ui-sref="admin">Administrador</a></li>
+                <li class="dropdown mega-dropdown row">
+                    <a ui-sref="#" class="dropdown-toggle" data-toggle="dropdown">Hardware<spam class="caret"></spam></a>
+                    <ul class="dropdown-menu mega-dropdawn-menu">
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'almacenamiento'})">Almacenamiento</a></li>
+                        <li class="col-md-4 list">
+                            <a ui-sref="#">Accesorios Notebooks <span class="caret"></span>
+                            </a>
+                            <ul class="hide-list">
+                                <li>
+                                    <a ui-sref="hardw-sub({categoria: 'accesorios-notebooks', sub: 'accesorios-para-notebook'})">Accesorios Para Notebook</a>
+                                </li>
+                                <li>
+                                    <a ui-sref="hardw-sub({categoria: 'accesorios-notebooks', sub: 'maletines-mochilas'})">Maletines y Mochilas</a>
+                                </li>
+                                <li>
+                                    <a ui-sref="hardw-sub({categoria: 'accesorios-notebooks', sub: 'cargadores'})">Cargadores</a>
+                                </li>
+                                <li><a ui-sref="hardw-sub({categoria: 'accesorios-notebooks', sub: 'baterias'})">Baterías</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'gabitenetes'})">Gabinetes</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'procesadores'})">Procesadores</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'tarjetas-de-video'})">Tarjetas de Video</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'tarjetas-madre'})">Tarjetas Madre</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'computadoras'})">Computadoras</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'scanners'})">Scanners</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'memorias-ram'})">Memorias RAM</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'enfriamento'})">Enfriamiento</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'tarjetas-de-sonido'})">Tarjetas de Sonido</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'cables-conectores'})">Cables  y Conectores</a>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'tarjetas-controladoras'})">Tarjetas controladoras</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'cctv-y-seguridad'})">CCTV y Seguridad</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'cctv-yseguridad'})">CCTV y Seguridad</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'energia'})">Energia</a></li>
+                        <li class="col-md-4 list">
+                            <a ui-sref="#">Teclados y Mouse <span class="caret"></span>
+                            </a>
+                            <ul class="hide-list">
+                                <li><a ui-sref="hardw-sub({categoria: 'teclados-y-mouse', sub: 'teclados-flexibles'})">Teclados Flexibles</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'teclados-y-mouse', sub: 'kit-teclado-mouse'})">Kit Teclado Mouse</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'teclados-y-mouse', sub: 'teclados'})">Teclados</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'teclados-y-mouse', sub: 'mouse'})">Mouse</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'teclados-y-mouse', sub: 'teclados-numericos'})">Teclados Numéricos</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'teclados-y-mouse', sub: 'trackballs'})">Trackballs</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'teclados-y-mouse', sub: 'retractiles'})">Retráctiles</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'tabletas-digitalizadoras'})">Tabletas Digitalizadoras</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'mobiliario'})">Mobiliario</a></li>
+                        <li class="col-md-4 list">
+                            <a ui-sref="#">Punto de Venta <span class="caret"></span></a>
+                            <ul class="hide-list">
+                                <li><a ui-sref="hardw-sub({categoria: 'punto-de-venta', sub: 'accesorios-punto-de-venta'})">Accesorios Punto de venta</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'punto-de-venta', sub: 'impresoras-punto-de-venta'})">Impresoras Punto de Venta</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'punto-de-venta', sub: 'lectores-codigo-de-barra'})">Lectores Código de barras</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'punto-de-venta', sub: 'cajones-de-dinero'})">Cajones de Dinero</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'punto-de-venta', sub: 'consumibles'})">Consumibles</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'punto-de-venta', sub: 'impresoras-de-etiqueta'})">Impresoras de etiquetas</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'punto-de-venta', sub: 'monitores-punto-de-venta'})">Monitores Punto de Venta</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'punto-de-venta', sub: 'lecturas-de-ranura'})">Lectores de Ranura</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'punto-de-venta', sub: 'terminal-punto-de-venta'})">Terminal Punto de Vennta</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'lector-de-huellas'})">Lector de Huella</a></li>
+                        <li class="col-md-4 list">
+                            <a ui-sref="#">Accesorios <span class="caret"></span></a>
+                            <ul class="hide-list">
+                                <li><a ui-sref="hardw-sub({categoria: 'accesorios', sub: 'accesorios-varios'})">Accesorios - Varios</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'accesorios', sub: 'presentadores'})">Presentadores Inalámbrico</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'accesorios', sub: 'tapetes'})">Tapetes</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'accesorios', sub: 'accesorios-tablet'})">Accesorios Tablet</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'accesorios', sub: 'transmisores-fm'})">Transmisores FM</a></li>
+                                <li><a ui-sref="hardw-sub({categoria: 'accesorios', sub: 'accesorios-para-mac'})">Accesorios Para Mac</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'accesorios-varios'})">Accesorios Varios</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'joysticks'})">Joysticks</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'volantes'})">Volantes</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'hubs'})">Hubs</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'gamepads'})">Gamepads</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'servidores'})">Servidores</a></li>
+                        <li class="col-md-4"><a ui-sref="hardware({categoria: 'telecomunicaciones'})">Telecomunicaciones</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown mega-dropdown row">
+                    <a ui-sref="#" class="dropdown-toggle" data-toggle="dropdown">Gadgets<spam class="caret"></spam></a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li class="col-md-4"><a ui-sref="gadget({categoria: 'acesorios'})">Accesorios</a></li>
+                        <li class="col-md-4"><a ui-sref="gadget({categoria: 'gps'})">GPS</a></li>
+                        <li class="col-md-4"><a ui-sref="gadget({categoria: 'reproductores-mp3-y-mp4'})">Reproductores de MP3 y MP4</a></li>
+                        <li class="col-md-4"><a ui-sref="gadget({categoria: 'modelismo-y-rc'})">Modelismo y RC</a></li>
+                        <li class="col-md-4"><a ui-sref="gadget({categoria: 'tablets'})">Tablets</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown mega-dropdown row">
+                    <a ui-sref="#" class="dropdown-toggle" data-toggle="dropdown">Redes<spam class="caret"></spam></a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'cableado-estructurado'})">Cableado estructurado</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'redes-inalambricas'})">Redes Inalámbricas</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'redes-cableadas'})">Redes Cableadas</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'switches'})">Switches</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'telefonoa-ip'})">Telefonia IP (VoIP)</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'herramientas'})">Herramientas</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'servidores-de-impresion'})">Servidores de impresión</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'poe'})">POE</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'cables-de-red'})">Cables de Red</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'powerline'})">PowerLine</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'ruteadores'})">Ruteadores</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'switch-kvm'})">Switch KVM</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'conectores-para-redes'})">Conectores Para Redes</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'terminales-ligeras'})">Terminales Ligeras</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'amplificadores-de-señal-celular'})">Amplificadores de señal Celular</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'mastiles'})">Mastiles</a></li>
+                        <li class="col-md-4"><a ui-sref="red({categoria: 'controlodor-de-acceso'})">Controlador de Acceso</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown mega-dropdown row">
+                    <a ui-sref="#" class="dropdown-toggle" data-toggle="dropdown">Software<spam class="caret"></spam></a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'microsoft-office'})">Microsoft Office</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'antivirus'})">Antivirus</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'sistemas-operativos'})">Sistemas Operativos</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'autodesk'})">Autodesk</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'hosting-web'})">Web Hosting</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'adobe'})">Adobe</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'software-aspel'})">Software Aspel</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'software-ads'})">Software ADS</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'videojugos'})">VideoJuego</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'software-administrativo'})">Software Administrativo</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'software-national'})">Software National</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'software-aplicacion'})">Software Aplicación</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'software-seguridad'})">Software Seguraidad</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'control-de-acceso'})">Control de Acceso</a></li>
+                        <li class="col-md-4"><a ui-sref="softw({categoria: 'polizas-de-garantia'})">Pólizas de Garantía</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown mega-dropdown row">
+                    <a ui-sref="#" class="dropdown-toggle" data-toggle="dropdown">Fotografía<spam class="caret"></spam></a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li class="col-md-4 list">
+                            <a ui-sref="#">Accesorios Para Camaras <span class="caret"></span></a>
+                            <ul class="hide-list">
+                                <li><a ui-sref="foto-sub({categoria: 'fotografia', sub: 'fundas-para-camara'})">Fundas Para Cámaras</a></li>
+                                <li><a ui-sref="foto-sub({categoria: 'fotografia', sub: 'cables'})">Cables</a></li>
+                                <li><a ui-sref="foto-sub({categoria: 'fotografia', sub: 'varios'})">Varios</a></li>
+                                <li><a ui-sref="foto-sub({categoria: 'fotografia', sub: 'papel-fotografico'})">Papel Fotográfico</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-md-4"><a ui-sref="foto({categoria: 'camara-de-video'})">Camara de Video</a></li>
+                        <li class="col-md-4"><a ui-sref="foto({categoria: 'camaras-digitales'})">Camaras Digitales</a></li>
+                        <li class="col-md-4"><a ui-sref="foto({categoria: 'webcam'})">Webcam</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown mega-dropdown row">
+                    <a ui-sref="#" class="dropdown-toggle" data-toggle="dropdown">Impresión<spam class="caret"></spam></a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'impresoras-de-matriz'})">Impresoras de Matriz</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'impresoras-de-inyeccion'})">Impresoras de Inyección</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'impresoras-de-laser-blanco-y-negro'})">Impresoras Láser Blanco y Negro</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'impresoras-laser-color'})">Impresora Láser Color</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'impresoras-multifuncionales'})">Impresoras Multifuncionales</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'cabezal-de-impresion'})">Cabezal de Impresión</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'plotter'})">Plotter</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'tintas'})">Tintas</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'toners'})">Toners</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'copiadoras'})">Copiadoras</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'cintas'})">Cintas</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'impresora-portatil'})">Impresora Portátil</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'impresoras-picturemate'})">Impresoras Picturemate</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'accesorios-para-impresoras'})">Accesorios para impresora</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'impresoras-de-tarjetas'})">Impresora de Tarjetas</a></li>
+                        <li class="col-md-4"><a ui-sref="imp({categoria: 'impresoras-de-tinta-continua'})">Impresoras Tinta Continua</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown mega-dropdown row">
+                    <a ui-sref="#" class="dropdown-toggle" data-toggle="dropdown">Papelería<spam class="caret"></spam></a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li class="col-md-4"><a ui-sref="paper({categoria: 'articulos-de-papeleria'})">Artículos de Papelería</a></li>
+                        <li class="col-md-4"><a ui-sref="paper({categoria: 'equipo-de-oficina'})">Equipo de Oficina</a></li>
+                        <li class="col-md-4"><a ui-sref="paper({categoria: 'papeles'})">Papeles</a></li>
+                        <li class="col-md-4"><a ui-sref="paper({categoria: 'articulos-de-escritorio'})">Artículos de Escritorio</a></li>
+                        <li class="col-md-4"><a ui-sref="paper({categoria: 'articulos-de-escritura'})">Artículos de Escritura</a></li>
+                        <li class="col-md-4"><a ui-sref="paper({categoria: 'articulos-de-limpieza'})">Artículos de Limpieza</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown mega-dropdown row">
+                    <a ui-sref="#" class="dropdown-toggle" data-toggle="dropdown">Electrónica<spam class="caret"></spam></a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li class="col-md-4 list">
+                            <a ui-sref="#">Monitores y Televisores <span class="caret"></span></a>
+                            <ul class="hide-list">
+                                <li><a ui-sref="electr-sub({categoria: 'monitores-y-televisores', sub: 'monitores-lcd'})">Monitores LCD</a></li>
+                                <li><a ui-sref="electr-sub({categoria: 'monitores-y-televisores', sub: 'soporte-para-tv-lcd'})">Soportes para TV/LCD</a></li>
+                                <li><a ui-sref="electr-sub({categoria: 'monitores-y-televisores', sub: 'televisores-lcd'})">Televisores LCD</a></li>
+                                <li><a ui-sref="electr-sub({categoria: 'monitores-y-televisores', sub: 'monitores-led'})">Monitores LED</a></li>
+                                <li><a ui-sref="electr-sub({categoria: 'monitores-y-televisores', sub: 'accesorios-para-monitor'})">Accesorios Para Monitor</a></li>
+                                <li><a ui-sref="electr-sub({categoria: 'monitores-y-televisores', sub: 'televisores-led'})">Televisores LED</a></li>
+                                <li><a ui-sref="electr-sub({categoria: 'monitores-y-televisores', sub: 'monitores-lcd'})">Monitores Touch Screen</a></li>
+                                <li><a ui-sref="electr-sub({categoria: 'monitores-y-televisores', sub: 'televisores-plasma'})">Televisores Plama</a></li>
+                                <li><a ui-sref="electr-sub({categoria: 'monitores-y-televisores', sub: 'monitores-de-plasma'})">Monitor de Plasma</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-md-4 list">
+                            <a ui-sref="#">Bocinas, Audifonos y Micronos <span class="caret"></span></a>
+                            <ul class="hide-list">
+                                <li><a ui-sref="electr-sub({categoria: 'bocinas-audifonos-y-microfonos', sub: 'bocinas'})">Bocinas</a></li>
+                                <li><a ui-sref="electr-sub({categoria: 'bocinas-audifonos-y-microfonos', sub: 'audifonos-y-microfonos'})">Audifonos y Microfónos</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-md-4 list">
+                            <a ui-sref="#">Videoproyectores <span class="caret"></span></a>
+                            <ul class="hide-list">
+                                <li><a ui-sref="electr-sub({categoria: 'videoproyectores', sub: 'videoproyectores'})">Videoproyectores</a></li>
+                                <li><a ui-sref="electr-sub({categoria: 'videoproyectores', sub: 'accesorios-para-proyectores'})">Accesorios Para Proyectores</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-md-4"><a ui-sref="electr({categoria: 'reproductores'})">Reproductores</a></li>
+                        <li class="col-md-4"><a ui-sref="electr({categoria: 'televisores'})">Televisores</a></li>
+                        <li class="col-md-4"><a ui-sref="electr({categoria: 'articulos-de-limpieza'})">Articulos de Limpieza</a></li>
+                        <li class="col-md-4"><a ui-sref="electr({categoria: 'telefonos'})">Telefonos</a></li>
+                        <li class="col-md-4"><a ui-sref="electr({categoria: 'telefonia'})">Telefonía</a></li>
+                    </ul>
+                </li>
+                <li><a ui-sref="#"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Megamenu Fin -->
+
+<div ui-view></div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <h3 class="text-center">CONTACTO</h3>
+            <div class="col-md-5 col-md-offset-2">
+                <h5>DIRECCIÓN</h5>
+                <p>Veracruz Bolivar No. 1082</p>
+                <p>Entre 20 de Noviembre y La Fragua Col. Zaragoza CP. 91910</p>
+                <p>Veracruz, Veracruz Horario: 10:00 a 19:00</p>
+            </div>
+            <div class="col-md-4">
+                <h5>CONTACTO</h5>
+                <p><span class="glyphicon glyphicon-envelope"></span> Teléfono: 294 100 9110</p>
+                <p><span class="glyphicon glyphicon-earphone"></span> Email: dominio@gmail.com</p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <h5>REDES SOCIALES</h5>
+            <div class="footer-social">
+                <a href="">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+                <a href="">
+                    <i class="fa fa-twitter-square"></i>
+                </a>
+                <a href="">
+                    <i class="fa fa-google-plus-square"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <p class="text-center">&copy; Derechos Reservados 2015</p>
+</footer> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script></script>
+</body>
+</html>
